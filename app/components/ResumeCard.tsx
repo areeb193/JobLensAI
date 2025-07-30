@@ -19,28 +19,26 @@ const ResumeCard = ({ resume: { id, companyName, jobTitle, feedback, imagePath }
     }, [imagePath]);
 
     return (
-        <Link to={`/resume/${id}`} className="resume-card animate-in fade-in duration-1000">
-            <div className="resume-card-header">
-                <div className="flex flex-col gap-2">
-                    {companyName && <h2 className="!text-black font-bold break-words">{companyName}</h2>}
-                    {jobTitle && <h3 className="text-lg break-words text-gray-500">{jobTitle}</h3>}
-                    {!companyName && !jobTitle && <h2 className="!text-black font-bold">Resume</h2>}
+        <Link to={`/resume/${id}`} className="block w-[320px] bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-4 transition-transform duration-200 hover:scale-[1.03] hover:shadow-xl group min-h-[260px] mx-auto">
+            <div className="flex flex-row gap-3 justify-between items-center mb-2">
+                <div className="flex flex-col gap-0.5">
+                    {companyName && <h2 className="text-base font-semibold text-[var(--color-dark)] truncate max-w-[160px]">{companyName}</h2>}
+                    {jobTitle && <h3 className="text-xs text-[var(--color-primary)] font-medium truncate max-w-[160px]">{jobTitle}</h3>}
+                    {!companyName && !jobTitle && <h2 className="text-base font-semibold text-[var(--color-dark)]">Resume</h2>}
                 </div>
                 <div className="flex-shrink-0">
                     <ScoreCircle score={feedback.overallScore} />
                 </div>
             </div>
             {resumeUrl && (
-                <div className="gradient-border animate-in fade-in duration-1000">
-                    <div className="w-full h-full">
-                        <img
-                            src={resumeUrl}
-                            alt="resume"
-                            className="w-full h-[350px] max-sm:h-[200px] object-cover object-top"
-                        />
-                    </div>
+                <div className="w-full h-[90px] flex items-center justify-center bg-[var(--color-bg)] rounded-xl overflow-hidden mb-2">
+                    <img
+                        src={resumeUrl}
+                        alt="resume"
+                        className="object-contain h-full w-full transition-transform duration-300 group-hover:scale-105"
+                    />
                 </div>
-                )}
+            )}
         </Link>
     )
 }

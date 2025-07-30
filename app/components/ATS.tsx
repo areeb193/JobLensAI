@@ -13,10 +13,10 @@ interface ATSProps {
 const ATS: React.FC<ATSProps> = ({ score, suggestions }) => {
   // Determine background gradient based on score
   const gradientClass = score > 69
-    ? 'from-green-100'
+    ? 'from-[var(--color-success)]/20'
     : score > 49
-      ? 'from-yellow-100'
-      : 'from-red-100';
+      ? 'from-[var(--color-warning)]/20'
+      : 'from-[var(--color-danger)]/20';
 
   // Determine icon based on score
   const iconSrc = score > 69
@@ -33,18 +33,18 @@ const ATS: React.FC<ATSProps> = ({ score, suggestions }) => {
       : 'Needs Improvement';
 
   return (
-    <div className={`bg-gradient-to-b ${gradientClass} to-white rounded-2xl shadow-md w-full p-6`}>
+    <div className={`bg-gradient-to-b ${gradientClass} to-[var(--color-surface)] rounded-2xl shadow-lg w-full p-8 border border-[var(--color-border)]`}> 
       {/* Top section with icon and headline */}
-      <div className="flex items-center gap-4 mb-6">
-        <img src={iconSrc} alt="ATS Score Icon" className="w-12 h-12" />
+      <div className="flex items-center gap-6 mb-6">
+        <img src={iconSrc} alt="ATS Score Icon" className="w-16 h-16" />
         <div>
-          <h2 className="text-2xl font-bold">ATS Score - {score}/100</h2>
+          <h2 className="text-3xl font-extrabold text-[var(--color-primary)]">ATS Score - {score}/100</h2>
         </div>
       </div>
 
       {/* Description section */}
       <div className="mb-6">
-        <h3 className="text-xl font-semibold mb-2">{subtitle}</h3>
+        <h3 className="text-xl font-semibold mb-2 text-[var(--color-dark)]">{subtitle}</h3>
         <p className="text-gray-600 mb-4">
           This score represents how well your resume is likely to perform in Applicant Tracking Systems used by employers.
         </p>
@@ -58,7 +58,7 @@ const ATS: React.FC<ATSProps> = ({ score, suggestions }) => {
                 alt={suggestion.type === "good" ? "Check" : "Warning"}
                 className="w-5 h-5 mt-1"
               />
-              <p className={suggestion.type === "good" ? "text-green-700" : "text-amber-700"}>
+              <p className={suggestion.type === "good" ? "text-[var(--color-success)]" : "text-[var(--color-warning)]"}>
                 {suggestion.tip}
               </p>
             </div>

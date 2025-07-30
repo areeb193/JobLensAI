@@ -7,8 +7,8 @@ import {useEffect, useState} from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Resumind" },
-    { name: "description", content: "Smart feedback for your dream job!" },
+    { title: "JobLensAI" },
+    { name: "description", content: "AI-powered feedback and tracking for your job applications and resumes!" },
   ];
 }
 
@@ -44,7 +44,7 @@ export default function Home() {
 
     <section className="main-section">
       <div className="page-heading py-16">
-        <h1>Track Your Applications & Resume Ratings</h1>
+        <h1>Monitor Your Job Applications & Resume Scores</h1>
         {!loadingResumes && resumes?.length === 0 ? (
             <h2>No resumes found. Upload your first resume to get feedback.</h2>
         ): (

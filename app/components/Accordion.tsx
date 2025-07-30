@@ -55,7 +55,7 @@ export const Accordion: React.FC<AccordionProps> = ({
         <AccordionContext.Provider
             value={{ activeItems, toggleItem, isItemActive }}
         >
-            <div className={`space-y-2 ${className}`}>{children}</div>
+            <div className={`space-y-3 ${className}`}>{children}</div>
         </AccordionContext.Provider>
     );
 };
@@ -72,7 +72,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
                                                                 className = "",
                                                             }) => {
     return (
-        <div className={`overflow-hidden border-b border-gray-200 ${className}`}>
+        <div className={`overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] rounded-xl shadow-sm mb-2 ${className}`}>
             {children}
         </div>
     );
@@ -102,7 +102,7 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
                 "rotate-180": isActive,
             })}
             fill="none"
-            stroke="#98A2B3"
+            stroke="#6366f1"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
         >
@@ -122,12 +122,7 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
     return (
         <button
             onClick={handleClick}
-            className={`
-        w-full px-4 py-3 text-left
-        focus:outline-none
-        transition-colors duration-200 flex items-center justify-between cursor-pointer
-        ${className}
-      `}
+            className={`w-full px-6 py-4 text-left focus:outline-none transition-colors duration-200 flex items-center justify-between cursor-pointer font-bold text-lg text-[var(--color-primary)] hover:bg-[var(--color-accent)]/20 rounded-xl ${className}`}
         >
             <div className="flex items-center space-x-3">
                 {iconPosition === "left" && (icon || defaultIcon)}
@@ -154,13 +149,9 @@ export const AccordionContent: React.FC<AccordionContentProps> = ({
 
     return (
         <div
-            className={`
-        overflow-hidden transition-all duration-300 ease-in-out
-        ${isActive ? "max-h-fit opacity-100" : "max-h-0 opacity-0"}
-        ${className}
-      `}
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${isActive ? "max-h-fit opacity-100" : "max-h-0 opacity-0"} ${className}`}
         >
-            <div className="px-4 py-3 ">{children}</div>
+            <div className="px-6 py-4 text-[var(--color-dark)]">{children}</div>
         </div>
     );
 };
