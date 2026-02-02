@@ -1,4 +1,7 @@
 # AI Resume Analyzer
+<p align="center">
+  <img src="https://res.cloudinary.com/ddz3jxlit/image/upload/v1770025453/job_lens_ai_vchgkp.png" alt="Job Lens AI Banner" width="800">
+</p>
 
 This project is a simple yet powerful AI-based Resume Analyzer. It allows users to upload their resumes and receive intelligent feedback, including ATS (Applicant Tracking System) scores and custom suggestions tailored to specific job descriptions.
 
@@ -42,3 +45,4 @@ Puter.js
 Zustand
 
 Vite
+
